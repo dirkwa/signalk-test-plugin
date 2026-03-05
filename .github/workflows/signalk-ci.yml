@@ -1,0 +1,18 @@
+# Test the Plugin CI workflow from dirkwa/signalk-server fork
+# This will be changed to SignalK/signalk-server once the PR is merged
+
+name: SignalK Plugin CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    uses: dirkwa/signalk-server/.github/workflows/plugin-ci.yml@feat-ci-for-plugins
+    with:
+      enable-armv7: true
+      enable-signalk-integration: true

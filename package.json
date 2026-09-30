@@ -1,0 +1,19 @@
+{
+  "name": "signalk-test-plugin",
+  "version": "0.0.1",
+  "description": "Minimal SignalK plugin for testing the Plugin CI workflow",
+  "main": "index.js",
+  "keywords": [
+    "signalk-node-server-plugin"
+  ],
+  "scripts": {
+    "test": "node test/basic.test.js"
+  },
+  "dependencies": {
+    "ms": "2.1.3"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22"
+  }
+}

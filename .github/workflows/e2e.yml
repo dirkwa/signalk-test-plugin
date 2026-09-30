@@ -1,0 +1,23 @@
+# End-to-end check for SignalK/signalk-server#3100, scenario: subdir-lock
+# Plugin and its own package-lock.json in a subfolder, nothing at the root (the #3100 report).
+#
+# Runs the reusable plugin-ci twice on the same checkout: from master as of
+# the fix's base commit, and from the fix branch.
+name: plugin-ci e2e #3100 (subdir-lock)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  master:
+    uses: SignalK/signalk-server/.github/workflows/plugin-ci.yml@f5e91aa74817ca14bbff6b4ae47f8c83f3fe0b36
+    with:
+      working-directory: signalk-test-plugin
+      enable-signalk-integration: true
+
+  fix:
+    uses: dirkwa/signalk-server/.github/workflows/plugin-ci.yml@plugin-ci-cache-working-directory
+    with:
+      working-directory: signalk-test-plugin
+      enable-signalk-integration: true
